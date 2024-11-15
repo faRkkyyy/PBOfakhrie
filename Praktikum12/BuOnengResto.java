@@ -15,14 +15,12 @@ public class BuOnengResto extends JFrame {
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        
-        // Set background color for the main frame
-        getContentPane().setBackground(new Color(173, 216, 230)); // Light blue
 
-        // Panel Data Customer
+        getContentPane().setBackground(new Color(173, 216, 230));
+
         JPanel dataCustomerPanel = new JPanel(new GridLayout(3, 2));
         dataCustomerPanel.setBorder(BorderFactory.createTitledBorder("Data Customer"));
-        dataCustomerPanel.setBackground(new Color(224, 255, 255)); // Light cyan
+        dataCustomerPanel.setBackground(new Color(224, 255, 255));
 
         dataCustomerPanel.add(new JLabel("Nama:", JLabel.RIGHT));
         namaField = new JTextField();
@@ -38,10 +36,9 @@ public class BuOnengResto extends JFrame {
 
         add(dataCustomerPanel, BorderLayout.NORTH);
 
-        // Panel Pilih Menu
         JPanel menuPanel = new JPanel(new GridLayout(3, 2));
         menuPanel.setBorder(BorderFactory.createTitledBorder("Menu Resto Bu Oneng"));
-        menuPanel.setBackground(new Color(224, 238, 238)); // Light turquoise
+        menuPanel.setBackground(new Color(224, 238, 238));
 
         baksoCheckBox = new JCheckBox("Bakso (15000)");
         seblakCheckBox = new JCheckBox("Seblak (15000)");
@@ -59,19 +56,16 @@ public class BuOnengResto extends JFrame {
 
         add(menuPanel, BorderLayout.CENTER);
 
-        // Panel Total Bayar dan Tombol Tambah
         JPanel bayarPanel = new JPanel();
         bayarPanel.setLayout(new BoxLayout(bayarPanel, BoxLayout.Y_AXIS));
-        bayarPanel.setBackground(new Color(173, 216, 230)); // Light blue to match the theme
+        bayarPanel.setBackground(new Color(173, 216, 230));
 
-        // Label "Total Bayar" with unique style
         JLabel totalLabelTitle = new JLabel("TOTAL");
         totalLabelTitle.setFont(new Font("Arial", Font.BOLD, 16));
         totalLabelTitle.setForeground(Color.BLACK);
         totalLabelTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         bayarPanel.add(totalLabelTitle);
 
-        // Label for total amount with black background and white text
         totalLabel = new JLabel("Rp 0", SwingConstants.CENTER);
         totalLabel.setFont(new Font("SansSerif", Font.BOLD, 18));
         totalLabel.setForeground(Color.WHITE);
@@ -81,10 +75,9 @@ public class BuOnengResto extends JFrame {
         totalLabel.setPreferredSize(new Dimension(150, 30));
         totalLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         bayarPanel.add(totalLabel);
-        
-        bayarPanel.add(Box.createVerticalStrut(10)); // Spacer
 
-        // Button "Tambah" with enhanced look
+        bayarPanel.add(Box.createVerticalStrut(10));
+
         JButton tambahButton = new JButton("Submit");
         tambahButton.setFont(new Font("SansSerif", Font.BOLD, 14));
         tambahButton.setBackground(Color.WHITE);
@@ -96,15 +89,13 @@ public class BuOnengResto extends JFrame {
 
         add(bayarPanel, BorderLayout.EAST);
 
-        // Text Area untuk Data Penjualan
         pesananArea = new JTextArea();
         pesananArea.setEditable(false);
-        pesananArea.setBackground(new Color(245, 245, 245)); // Light gray
+        pesananArea.setBackground(new Color(245, 245, 245));
         JScrollPane scrollPane = new JScrollPane(pesananArea);
         scrollPane.setBorder(BorderFactory.createTitledBorder("Data Penjualan"));
         add(scrollPane, BorderLayout.SOUTH);
 
-        // Action Listener untuk Checkbox
         baksoCheckBox.addActionListener(e -> updateTotal());
         seblakCheckBox.addActionListener(e -> updateTotal());
         burgerCheckBox.addActionListener(e -> updateTotal());
@@ -112,7 +103,6 @@ public class BuOnengResto extends JFrame {
         spaghettiCheckBox.addActionListener(e -> updateTotal());
         pizzaCheckBox.addActionListener(e -> updateTotal());
 
-        // Action Listener untuk Tombol Tambah
         tambahButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
